@@ -6,50 +6,87 @@
 <title>ANARCHIA 2.0</title>
 
 <style>
+
 body{
     margin:0;
-    font-family:Arial;
-    background:#0f0f0f;
+    font-family:Arial, sans-serif;
+    background:#0d0d0d;
     color:white;
     text-align:center;
 }
 
 header{
-    padding:80px;
+    padding:100px 20px;
     background:url('https://wallpapercave.com/wp/wp2757874.gif');
     background-size:cover;
+    background-position:center;
 }
 
 h1{
-    font-size:60px;
+    font-size:65px;
     color:#00ff88;
     text-shadow:0 0 20px #00ff88;
+    margin:0;
+}
+
+.subtitle{
+    font-size:22px;
+    margin-top:15px;
 }
 
 .box{
-    background:#1a1a1a;
+    width:85%;
+    max-width:900px;
     margin:30px auto;
+    background:#1a1a1a;
     padding:30px;
-    width:80%;
     border-radius:20px;
-    box-shadow:0 0 20px #00ff8855;
+    box-shadow:0 0 25px rgba(0,255,136,0.2);
 }
 
 .btn{
     display:inline-block;
     margin:10px;
-    padding:15px 30px;
+    padding:15px 35px;
     background:#00ff88;
     color:black;
     text-decoration:none;
     border-radius:12px;
     font-weight:bold;
     transition:0.3s;
+    cursor:pointer;
 }
 
 .btn:hover{
-    transform:scale(1.1);
+    transform:scale(1.08);
 }
+
+.shop{
+    display:none;
+    margin-top:25px;
+}
+
+.item{
+    background:#111;
+    margin:15px auto;
+    padding:20px;
+    border-radius:15px;
+    width:80%;
+    border:1px solid #00ff88;
+}
+
+.price{
+    color:#00ff88;
+    font-size:22px;
+    margin-top:10px;
+}
+
+.footer{
+    opacity:0.6;
+    font-size:14px;
+    padding:30px;
+}
+
 </style>
 </head>
 
@@ -57,33 +94,121 @@ h1{
 
 <header>
     <h1>ANARCHIA 2.0</h1>
-    <p>Polski Serwer Minecraft</p>
+    <div class="subtitle">
+        Polski Serwer Minecraft Anarchia
+    </div>
 </header>
 
 <div class="box">
+
     <h2>IP SERWERA</h2>
-    <p>anarchia2_0.aternos.me</p>
+
+    <p style="font-size:24px;">
+        anarchia2_0.aternos.me
+    </p>
+
 </div>
 
 <div class="box">
+
     <h2>LINKI</h2>
 
-    <a class="btn" href="https://discord.gg/DfdJmNcJuQ">
+    <a class="btn" href="https://discord.gg/DfdJmNcJuQ" target="_blank">
         Discord
     </a>
 
-    <a class="btn" href="https://www.tiktok.com/@kacperrr004">
+    <a class="btn" href="https://www.tiktok.com/@kacperrr004" target="_blank">
         TikTok
     </a>
+
 </div>
 
 <div class="box">
+
     <h2>REGULAMIN</h2>
 
     <p>1. Zakaz cheatów</p>
     <p>2. Zakaz crashowania serwera</p>
-    <p>3. Szanuj innych</p>
+    <p>3. Zakaz reklam innych serwerów</p>
+    <p>4. Szanuj innych graczy</p>
+    <p>5. Administracja ma ostateczne zdanie</p>
+
 </div>
+
+<div class="box">
+
+    <h2>ITEM SHOP</h2>
+
+    <button class="btn" onclick="toggleShop()">
+        Otwórz Item Shop
+    </button>
+
+    <div class="shop" id="shop">
+
+        <div class="item">
+            <h3>Klucz Epicki</h3>
+            <div class="price">5 PLN</div>
+        </div>
+
+        <div class="item">
+            <h3>Klucz Rzadki</h3>
+            <div class="price">10 PLN</div>
+        </div>
+
+        <div class="item">
+            <h3>Klucz Legendarny</h3>
+            <div class="price">20 PLN</div>
+        </div>
+
+        <div class="item">
+            <h3>Klucz Anarchiczny</h3>
+            <div class="price">35 PLN</div>
+        </div>
+
+        <div class="item">
+            <h3>Klucz Eventowy</h3>
+            <div class="price">15 PLN</div>
+        </div>
+
+        <div class="item">
+            <h3>Klucz Zaklęć Specjalnych</h3>
+            <div class="price">25 PLN</div>
+        </div>
+
+        <div class="item">
+            <h3>Klucz Kostiumów</h3>
+            <div class="price">18 PLN</div>
+        </div>
+
+        <div class="item">
+            <h3>Klucz Petów</h3>
+            <div class="price">30 PLN</div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    Wszelkie błędy proszę zgłaszać na Discordzie na kanale propozycje.
+</div>
+
+<script>
+
+function toggleShop(){
+
+    let shop = document.getElementById("shop");
+
+    if(shop.style.display === "block"){
+        shop.style.display = "none";
+    }
+    else{
+        shop.style.display = "block";
+    }
+
+}
+
+</script>
 
 </body>
 </html>
