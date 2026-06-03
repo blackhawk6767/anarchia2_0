@@ -4,211 +4,78 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ANARCHIA 2.0</title>
-
 <style>
-
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#0d0d0d;
-    color:white;
-    text-align:center;
-}
-
-header{
-    padding:100px 20px;
-    background:url('https://wallpapercave.com/wp/wp2757874.gif');
-    background-size:cover;
-    background-position:center;
-}
-
-h1{
-    font-size:65px;
-    color:#00ff88;
-    text-shadow:0 0 20px #00ff88;
-    margin:0;
-}
-
-.subtitle{
-    font-size:22px;
-    margin-top:15px;
-}
-
-.box{
-    width:85%;
-    max-width:900px;
-    margin:30px auto;
-    background:#1a1a1a;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 0 25px rgba(0,255,136,0.2);
-}
-
-.btn{
-    display:inline-block;
-    margin:10px;
-    padding:15px 35px;
-    background:#00ff88;
-    color:black;
-    text-decoration:none;
-    border-radius:12px;
-    font-weight:bold;
-    transition:0.3s;
-    cursor:pointer;
-}
-
-.btn:hover{
-    transform:scale(1.08);
-}
-
-.shop{
-    display:none;
-    margin-top:25px;
-}
-
-.item{
-    background:#111;
-    margin:15px auto;
-    padding:20px;
-    border-radius:15px;
-    width:80%;
-    border:1px solid #00ff88;
-}
-
-.price{
-    color:#00ff88;
-    font-size:22px;
-    margin-top:10px;
-}
-
-.footer{
-    opacity:0.6;
-    font-size:14px;
-    padding:30px;
-}
-
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:#0d0d0d;color:#fff;text-align:center}
+header{padding:100px 20px;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.8)),url('https://images.unsplash.com/photo-1636487658583-1cf5bfd2d7c8?q=80&w=1200&auto=format&fit=crop');background-size:cover}
+h1{font-size:64px;color:#00ff88;text-shadow:0 0 20px #00ff88}
+.box{max-width:900px;margin:25px auto;padding:25px;background:#1a1a1a;border-radius:18px;box-shadow:0 0 20px rgba(0,255,136,.2);animation:fade .8s}
+.btn{display:inline-block;margin:8px;padding:14px 28px;background:#00ff88;color:#000;text-decoration:none;border-radius:12px;font-weight:bold;border:none;cursor:pointer;transition:.3s}
+.btn:hover{transform:scale(1.05)}
+.shopitem{background:#111;margin:12px;padding:16px;border-radius:12px}
+#loading{display:none;position:fixed;inset:0;background:#000;justify-content:center;align-items:center;flex-direction:column;font-size:28px;color:#00ff88;z-index:9999}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 </style>
 </head>
-
 <body>
 
+<div id="loading">
+<h2>Ładowanie...</h2>
+<p>Płatności dokonaj na kanale #itemshop</p>
+</div>
+
 <header>
-    <h1>ANARCHIA 2.0</h1>
-    <div class="subtitle">
-        Polski Serwer Minecraft Anarchia
-    </div>
+<h1>ANARCHIA 2.0</h1>
+<p>Polski serwer Minecraft</p>
 </header>
 
 <div class="box">
-
-    <h2>IP SERWERA</h2>
-
-    <p style="font-size:24px;">
-        anarchia2_0.aternos.me
-    </p>
-
+<h2>IP SERWERA</h2>
+<p id="ip">anarchia2_0.aternos.me</p>
+<button class="btn" onclick="copyIP()">Kopiuj IP</button>
 </div>
 
 <div class="box">
-
-    <h2>LINKI</h2>
-
-    <a class="btn" href="https://discord.gg/DfdJmNcJuQ" target="_blank">
-        Discord
-    </a>
-
-    <a class="btn" href="https://www.tiktok.com/@kacperrr004" target="_blank">
-        TikTok
-    </a>
-
+<h2>Linki</h2>
+<a class="btn" href="https://discord.gg/8v6FPSWu3q" target="_blank">Discord</a>
+<a class="btn" href="https://www.tiktok.com/@kacperrr004" target="_blank">TikTok</a>
 </div>
 
 <div class="box">
-
-    <h2>REGULAMIN</h2>
-
-    <p>1. Zakaz cheatów</p>
-    <p>2. Zakaz crashowania serwera</p>
-    <p>3. Zakaz reklam innych serwerów</p>
-    <p>4. Szanuj innych graczy</p>
-    <p>5. Administracja ma ostateczne zdanie</p>
-
+<h2>Regulamin</h2>
+<p>1. Zakaz cheatów</p>
+<p>2. Zakaz crashowania serwera</p>
+<p>3. Zakaz reklam innych serwerów</p>
+<p>4. Szanuj innych graczy</p>
 </div>
 
 <div class="box">
+<h2>ITEM SHOP</h2>
+<p>Płatność Blikiem na Discordzie na kanale #itemshop</p>
 
-    <h2>ITEM SHOP</h2>
-
-    <button class="btn" onclick="toggleShop()">
-        Otwórz Item Shop
-    </button>
-
-    <div class="shop" id="shop">
-
-        <div class="item">
-            <h3>Klucz Epicki</h3>
-            <div class="price">5 PLN</div>
-        </div>
-
-        <div class="item">
-            <h3>Klucz Rzadki</h3>
-            <div class="price">10 PLN</div>
-        </div>
-
-        <div class="item">
-            <h3>Klucz Legendarny</h3>
-            <div class="price">20 PLN</div>
-        </div>
-
-        <div class="item">
-            <h3>Klucz Anarchiczny</h3>
-            <div class="price">35 PLN</div>
-        </div>
-
-        <div class="item">
-            <h3>Klucz Eventowy</h3>
-            <div class="price">15 PLN</div>
-        </div>
-
-        <div class="item">
-            <h3>Klucz Zaklęć Specjalnych</h3>
-            <div class="price">25 PLN</div>
-        </div>
-
-        <div class="item">
-            <h3>Klucz Kostiumów</h3>
-            <div class="price">18 PLN</div>
-        </div>
-
-        <div class="item">
-            <h3>Klucz Petów</h3>
-            <div class="price">30 PLN</div>
-        </div>
-
-    </div>
-
+<div class="shopitem">Klucz Rzadki — 5 zł <br><button class="btn" onclick="kup()">Kup</button></div>
+<div class="shopitem">Klucz Epicki — 10 zł <br><button class="btn" onclick="kup()">Kup</button></div>
+<div class="shopitem">Klucz Legendarny — 20 zł <br><button class="btn" onclick="kup()">Kup</button></div>
+<div class="shopitem">Klucz Zaklęć Specjalnych — 25 zł <br><button class="btn" onclick="kup()">Kup</button></div>
+<div class="shopitem">Klucz Kostiumów — 18 zł <br><button class="btn" onclick="kup()">Kup</button></div>
+<div class="shopitem">Klucz Petów — 30 zł <br><button class="btn" onclick="kup()">Kup</button></div>
+<div class="shopitem">Klucz Anarchiczny — 35 zł <br><button class="btn" onclick="kup()">Kup</button></div>
+<div class="shopitem">Klucz Eventowy — 35 zł <br><button class="btn" onclick="kup()">Kup</button></div>
 </div>
 
-<div class="footer">
-    Wszelkie błędy proszę zgłaszać na Discordzie na kanale propozycje.
+<div class="box">
+Wszelkie błędy proszę zgłaszać na Discordzie na kanale propozycje.
 </div>
 
 <script>
-
-function toggleShop(){
-
-    let shop = document.getElementById("shop");
-
-    if(shop.style.display === "block"){
-        shop.style.display = "none";
-    }
-    else{
-        shop.style.display = "block";
-    }
-
+function copyIP(){
+navigator.clipboard.writeText("anarchia2_0.aternos.me");
+alert("IP skopiowane!");
 }
-
+function kup(){
+document.getElementById("loading").style.display="flex";
+setTimeout(()=>{window.location.href="https://discord.gg/8v6FPSWu3q";},5000);
+}
 </script>
-
 </body>
 </html>
